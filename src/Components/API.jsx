@@ -3,13 +3,13 @@ import React from "react";
 const API = () => {
   const [recipeDetails, setDetails] = React.useState("");
   const condition = React.useRef(true);
-
+  const API_KEY = process.env.REACT_APP_APIKEY2;
   React.useEffect(() => {
     console.log(condition.current);
     if (recipeDetails === undefined) {
       return undefined;
     } else if (condition.current) {
-      const API_KEY = process.env.REACT_APP_APIKEY2;
+      console.log(API_KEY);
       fetch(
         `https://api.spoonacular.com/recipes/654959/information?apiKey=${API_KEY}&query=pasta`
       )
@@ -24,7 +24,7 @@ const API = () => {
   });
 
   console.log(recipeDetails);
-  return <div>API CALL</div>;
+  return <div>{API_KEY}</div>;
 };
 
 export default API;
