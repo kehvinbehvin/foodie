@@ -6,6 +6,9 @@ import fetcher from "../API/fetcher";
 const UniqueRecipeDetails = () => {
   const { id } = useParams();
   const { url } = useRouteMatch();
+  const urlArray = url.split("/");
+  urlArray.splice(-1);
+  const prevURL = urlArray.join("/");
   const data = useContext(dataContext);
   const dispatch = data.pageStates[1];
   const dataDisplay = data.pageStates[0].uniqueRecipe;
@@ -45,6 +48,9 @@ const UniqueRecipeDetails = () => {
   }, [id, dispatch]);
   return (
     <>
+      <Link to={`${prevURL}`}>
+        <button>back to results</button>
+      </Link>
       <div>{dataDisplayJSX}</div>
       <Link to={`${url}/requirements`}>
         <button>Requirements</button>

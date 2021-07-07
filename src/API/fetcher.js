@@ -1,6 +1,5 @@
 const fetcher = async (fetchType, options = {}) => {
-  const API_KEY = process.env.REACT_APP_APIKEY2;
-
+  const API_KEY = process.env.REACT_APP_APIKEY3;
   const API_URL = `?apiKey=${API_KEY}`;
   const recipeId = options.recipeId;
   const reciepeStandardURL = `https://api.spoonacular.com/recipes/${recipeId}`;

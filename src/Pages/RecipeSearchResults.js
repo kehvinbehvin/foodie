@@ -1,9 +1,10 @@
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch, Route } from "react-router-dom";
 import React, { useContext, useEffect } from "react";
 import { dataContext } from "../App";
 import fetcher from "../API/fetcher";
 import Card from "../Components/Card";
 import PageBar from "../Components/pageBar";
+import RecipeUnique from "../Pages/RecipeUnique";
 
 const RecipeSearchResults = () => {
   console.log("rendering search results");

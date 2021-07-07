@@ -187,11 +187,11 @@ function App() {
           <Route path="/browse">
             <RecipeBrowse />
           </Route>
-          <Route exact path="/Searchresults">
-            <RecipeSearchResults />
-          </Route>
-          <Route exact path="/Searchresults/:id">
+          <Route path="/Searchresults/:id">
             <RecipeUnique />
+          </Route>
+          <Route path="/Searchresults">
+            <RecipeSearchResults />
           </Route>
         </Switch>
       </div>

@@ -24,44 +24,43 @@ const RecipeBrowse = () => {
         <Route exact path={`${path}`}>
           <div>Select a filter</div>
         </Route>
-
-        <Route exact path={`${path}/cuisine`}>
+        <Route path={`${path}/cuisine/:id/requirements`}>
+          <RecipeRequirements />
+        </Route>
+        <Route path={`${path}/cuisine/:id/instructions`}>
+          <RecipeInstructions />
+        </Route>
+        <Route path={`${path}/cuisine/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route path={`${path}/cuisine`}>
           <Cuisine />
         </Route>
-        <Route exact path={`${path}/cuisine/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route exact path={`${path}/cuisine/:id/requirements`}>
+
+        <Route path={`${path}/diet/:id/requirements`}>
           <RecipeRequirements />
         </Route>
-        <Route exact path={`${path}/cuisine/:id/instructions`}>
+        <Route path={`${path}/diet/:id/instructions`}>
           <RecipeInstructions />
         </Route>
-
-        <Route exact path={`${path}/diet`}>
+        <Route path={`${path}/diet/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route path={`${path}/diet`}>
           <Diet />
         </Route>
-        <Route exact path={`${path}/diet/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route exact path={`${path}/diet/:id/requirements`}>
-          <RecipeRequirements />
-        </Route>
-        <Route exact path={`${path}/diet/:id/instructions`}>
-          <RecipeInstructions />
-        </Route>
 
-        <Route exact path={`${path}/cookingDuration`}>
-          <CookingDuration />
-        </Route>
-        <Route exact path={`${path}/cookingDuration/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route exact path={`${path}/cookingDuration/:id/requirements`}>
+        <Route path={`${path}/cookingDuration/:id/requirements`}>
           <RecipeRequirements />
         </Route>
-        <Route exact path={`${path}/cookingDuration/:id/instructions`}>
+        <Route path={`${path}/cookingDuration/:id/instructions`}>
           <RecipeInstructions />
+        </Route>
+        <Route path={`${path}/cookingDuration/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route path={`${path}/cookingDuration`}>
+          <CookingDuration />
         </Route>
       </Switch>
     </div>

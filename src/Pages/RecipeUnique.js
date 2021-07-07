@@ -1,6 +1,8 @@
 import React from "react";
-import RecipeUniqueDetails from "../Components/UniqueRecipeDetails";
+import UniqueRecipeDetails from "../Components/UniqueRecipeDetails";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
+import RecipeInstructions from "../Components/RecipeInstructions";
+import RecipeRequirements from "../Components/RecipeRequirements";
 
 const RecipeUnique = () => {
   const { path } = useRouteMatch();
@@ -9,7 +11,13 @@ const RecipeUnique = () => {
     <>
       <Switch>
         <Route exact path={`${path}`}>
-          <RecipeUniqueDetails />;
+          <UniqueRecipeDetails />;
+        </Route>
+        <Route path={`${path}/requirements`}>
+          <RecipeRequirements />
+        </Route>
+        <Route path={`${path}/instructions`}>
+          <RecipeInstructions />
         </Route>
       </Switch>
     </>
