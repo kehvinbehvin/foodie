@@ -40,7 +40,7 @@ const Diet = () => {
       dispatch({ type: "UPDATEBROSWEDATA", payload: responseData });
     };
     uploadData();
-  }, [innerfilter]);
+  }, [innerfilter, dispatch]);
   return (
     <>
       <div>{filtersJSX}</div>

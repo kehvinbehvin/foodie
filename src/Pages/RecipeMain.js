@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { dataContext } from "../App";
 
 const RecipeMain = () => {

@@ -42,7 +42,7 @@ const CookingDuration = () => {
       dispatch({ type: "UPDATEBROSWEDATA", payload: responseData });
     };
     uploadData();
-  }, [innerfilter]);
+  }, [innerfilter, dispatch]);
 
   return (
     <>

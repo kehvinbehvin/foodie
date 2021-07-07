@@ -7,7 +7,7 @@ import PageBar from "../Components/pageBar";
 
 const RecipeSearchResults = () => {
   console.log("rendering search results");
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
   const data = useContext(dataContext);
   const userInput = data.pageStates[0].home.userInput;
   const dispatch = data.pageStates[1];
@@ -32,7 +32,7 @@ const RecipeSearchResults = () => {
       dispatch({ type: "UPDATESEARCHRESULTS", payload: responseData });
     };
     uploadData();
-  }, [userInput, pageNumber]);
+  }, [userInput, pageNumber, dispatch]);
   return (
     <div>
       <h1>Search results</h1>

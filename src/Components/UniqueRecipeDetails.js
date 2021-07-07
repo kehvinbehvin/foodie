@@ -19,6 +19,7 @@ const UniqueRecipeDetails = () => {
         } else if (index === 2) {
           return <div>price: {element.totalCost}</div>;
         }
+        return null;
       })
     ) : (
       <div>...</div>
@@ -40,7 +41,7 @@ const UniqueRecipeDetails = () => {
       dispatch({ type: "APPENDDATATOUNIQUEPAGE", payload: responseDataPrice });
     };
     uploadData();
-  }, [id]);
+  }, [id, dispatch]);
   return <div>{dataDisplayJSX}</div>;
 };
 

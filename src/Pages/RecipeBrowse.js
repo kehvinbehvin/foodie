@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, Route, useRouteMatch, Switch } from "react-router-dom";
-import { dataContext } from "../App";
 import BrowseFilter from "../Components/BrowseFilter";
 import Diet from "../Components/Diet";
 import Cuisine from "../Components/Cuisine";
