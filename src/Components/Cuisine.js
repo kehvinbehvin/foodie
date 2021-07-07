@@ -18,7 +18,7 @@ const Cuisine = () => {
   };
   const filtersJSX = filters.map((element) => {
     return (
-      <button value={element} onClick={retrieveValue}>
+      <button value={element} onClick={retrieveValue} key={element}>
         {element}
       </button>
     );
@@ -40,7 +40,7 @@ const Cuisine = () => {
       dispatch({ type: "UPDATEBROSWEDATA", payload: responseData });
     };
     uploadData();
-  }, [innerfilter,dispatch]);
+  }, [innerfilter, dispatch]);
   return (
     <>
       <div>{filtersJSX}</div>

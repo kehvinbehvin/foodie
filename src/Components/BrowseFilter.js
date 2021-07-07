@@ -10,7 +10,7 @@ const BrowseFilter = () => {
   const filterNamesJSX = filterNames.map((element) => {
     return (
       <Link to={url + "/" + element}>
-        <div>{element}</div>
+        <div key={element}>{element}</div>
       </Link>
     );
   });

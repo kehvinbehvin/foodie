@@ -4,6 +4,9 @@ import BrowseFilter from "../Components/BrowseFilter";
 import Diet from "../Components/Diet";
 import Cuisine from "../Components/Cuisine";
 import CookingDuration from "../Components/CookingDuration";
+import RecipeUnique from "../Pages/RecipeUnique";
+import RecipeInstructions from "../Components/RecipeInstructions";
+import RecipeRequirements from "../Components/RecipeRequirements";
 
 const RecipeBrowse = () => {
   let { path } = useRouteMatch();
@@ -21,14 +24,44 @@ const RecipeBrowse = () => {
         <Route exact path={`${path}`}>
           <div>Select a filter</div>
         </Route>
-        <Route path={`${path}/cuisine`}>
+
+        <Route exact path={`${path}/cuisine`}>
           <Cuisine />
         </Route>
-        <Route path={`${path}/diet`}>
+        <Route exact path={`${path}/cuisine/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route exact path={`${path}/cuisine/:id/requirements`}>
+          <RecipeRequirements />
+        </Route>
+        <Route exact path={`${path}/cuisine/:id/instructions`}>
+          <RecipeInstructions />
+        </Route>
+
+        <Route exact path={`${path}/diet`}>
           <Diet />
         </Route>
-        <Route path={`${path}/cookingDuration`}>
+        <Route exact path={`${path}/diet/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route exact path={`${path}/diet/:id/requirements`}>
+          <RecipeRequirements />
+        </Route>
+        <Route exact path={`${path}/diet/:id/instructions`}>
+          <RecipeInstructions />
+        </Route>
+
+        <Route exact path={`${path}/cookingDuration`}>
           <CookingDuration />
+        </Route>
+        <Route exact path={`${path}/cookingDuration/:id`}>
+          <RecipeUnique />
+        </Route>
+        <Route exact path={`${path}/cookingDuration/:id/requirements`}>
+          <RecipeRequirements />
+        </Route>
+        <Route exact path={`${path}/cookingDuration/:id/instructions`}>
+          <RecipeInstructions />
         </Route>
       </Switch>
     </div>

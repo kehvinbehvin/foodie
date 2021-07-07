@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useRouteMatch, Link } from "react-router-dom";
 import { dataContext } from "../App";
 import fetcher from "../API/fetcher";
 
 const UniqueRecipeDetails = () => {
   const { id } = useParams();
+  const { url } = useRouteMatch();
   const data = useContext(dataContext);
   const dispatch = data.pageStates[1];
   const dataDisplay = data.pageStates[0].uniqueRecipe;
@@ -24,7 +25,7 @@ const UniqueRecipeDetails = () => {
     ) : (
       <div>...</div>
     );
-  console.log(dataDisplayJSX);
+
   useEffect(() => {
     const uploadData = async () => {
       dispatch({ type: "UPDATERECIPEID", payload: id });
@@ -42,7 +43,17 @@ const UniqueRecipeDetails = () => {
     };
     uploadData();
   }, [id, dispatch]);
-  return <div>{dataDisplayJSX}</div>;
+  return (
+    <>
+      <div>{dataDisplayJSX}</div>
+      <Link to={`${url}/requirements`}>
+        <button>Requirements</button>
+      </Link>
+      <Link to={`${url}/instructions`}>
+        <button>Instructions</button>
+      </Link>
+    </>
+  );
 };
 
 export default UniqueRecipeDetails;
