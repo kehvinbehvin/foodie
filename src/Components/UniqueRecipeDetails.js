@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams, useRouteMatch, Link } from "react-router-dom";
 import { dataContext } from "../App";
 import fetcher from "../API/fetcher";
+import Button from "react-bootstrap/Button";
 
 const UniqueRecipeDetails = () => {
   const { id } = useParams();
@@ -48,15 +49,16 @@ const UniqueRecipeDetails = () => {
   }, [id, dispatch]);
   return (
     <>
+      <br />
       <Link to={`${prevURL}`}>
-        <button>back to results</button>
+        <Button variant="primary">back to results</Button>
       </Link>
       <div>{dataDisplayJSX}</div>
       <Link to={`${url}/requirements`}>
-        <button>Requirements</button>
+        <Button variant="primary">Requirements</Button>
       </Link>
       <Link to={`${url}/instructions`}>
-        <button>Instructions</button>
+        <Button variant="primary">Instructions</Button>
       </Link>
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { dataContext } from "../App";
+import Button from "react-bootstrap/Button";
 
 const RecipeMain = () => {
   const data = useContext(dataContext);
@@ -20,10 +21,10 @@ const RecipeMain = () => {
       ></input>
       <div>
         <Link to="/browse">
-          <button>Browse</button>
-        </Link>
+          <Button variant="primary">Browse</Button>
+        </Link>{" "}
         <Link to="/searchResults">
-          <button>Search</button>
+          <Button variant="primary">Search</Button>
         </Link>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { dataContext } from "../App";
 import { useRouteMatch, Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const RecipeRequirements = () => {
   const data = useContext(dataContext);
@@ -23,7 +24,7 @@ const RecipeRequirements = () => {
       <div>Requirements</div>
       {ingredientsArrayJSX}
       <Link to={`${prevURL}`}>
-        <button>back to summary</button>
+        <Button variant="primary">back to summary</Button>
       </Link>
     </>
   );

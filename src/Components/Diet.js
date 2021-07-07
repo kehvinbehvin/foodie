@@ -3,17 +3,18 @@ import { dataContext } from "../App";
 import { useRouteMatch } from "react-router-dom";
 import Card from "../Components/Card";
 import fetcher from "../API/fetcher";
+import PageBarBrowsing from "../Components/PageBarBrowsing";
 
 const Diet = () => {
   const { path } = useRouteMatch();
   const data = useContext(dataContext);
   const filters = data.pageStates[0].browse.filters.diet;
   const innerfilter = data.pageStates[0].browse.dietInnerFilterChoice;
+  const currentPage = data.pageStates[0].browse.dietPage;
   const dispatch = data.pageStates[1];
   const retrieveValue = (event) => {
     dispatch({ type: "SETBROWSEDIETINNERFILTER", payload: event.target.value });
   };
-
   const filtersJSX = filters.map((element) => {
     return (
       <button value={element} onClick={retrieveValue}>
@@ -30,20 +31,20 @@ const Diet = () => {
         return <Card data={element} path={path} />;
       })
     );
-  console.log(data.pageStates[0]);
   useEffect(() => {
     const uploadData = async () => {
-      console.log(innerfilter);
       const responseData = await fetcher("COMPLEX", {
         diet: innerfilter,
+        offset: currentPage,
       });
       dispatch({ type: "UPDATEBROSWEDATA", payload: responseData });
     };
     uploadData();
-  }, [innerfilter, dispatch]);
+  }, [innerfilter, dispatch, currentPage]);
   return (
     <>
       <div>{filtersJSX}</div>
+      <PageBarBrowsing filter={"diet"} />
       {dataDisplayJSX}
     </>
   );

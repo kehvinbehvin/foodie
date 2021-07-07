@@ -3,6 +3,7 @@ import { dataContext } from "../App";
 import Card from "../Components/Card";
 import { useRouteMatch } from "react-router-dom";
 import fetcher from "../API/fetcher";
+import PageBarBrowsing from "../Components/PageBarBrowsing";
 
 const CookingDuration = () => {
   const { path } = useRouteMatch();
@@ -10,6 +11,7 @@ const CookingDuration = () => {
   const filters = data.pageStates[0].browse.filters.cookingDuration;
   const innerfilter =
     data.pageStates[0].browse.cookingDurationInnerFilterChoice;
+  const currentPage = data.pageStates[0].browse.cookingDurationPage;
   const dispatch = data.pageStates[1];
   const retrieveValue = (event) => {
     dispatch({
@@ -38,15 +40,17 @@ const CookingDuration = () => {
     const uploadData = async () => {
       const responseData = await fetcher("COMPLEX", {
         cookingDuration: innerfilter,
+        offset: currentPage,
       });
       dispatch({ type: "UPDATEBROSWEDATA", payload: responseData });
     };
     uploadData();
-  }, [innerfilter, dispatch]);
+  }, [innerfilter, dispatch, currentPage]);
 
   return (
     <>
       <div>{filtersJSX}</div>
+      <PageBarBrowsing filter={"cookingDuration"} />
       {dataDisplayJSX}
     </>
   );

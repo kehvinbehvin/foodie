@@ -5,6 +5,7 @@ import RecipeBrowse from "./Pages/RecipeBrowse";
 import RecipeSearchResults from "./Pages/RecipeSearchResults";
 import RecipeUnique from "./Pages/RecipeUnique";
 import { createContext, useReducer } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const dataContext = createContext();
 
@@ -87,6 +88,9 @@ const stateReducer = (states, action) => {
           cuisineInnerFilterChoice: action.payload,
           dietInnerFilterChoice: "",
           cookingDurationInnerFilterChoice: "",
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: states.browse.cookingDurationPage,
         },
       };
     case "SETBROWSEDIETINNERFILTER":
@@ -103,6 +107,9 @@ const stateReducer = (states, action) => {
           cuisineInnerFilterChoice: "",
           dietInnerFilterChoice: action.payload,
           cookingDurationInnerFilterChoice: "",
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: states.browse.cookingDurationPage,
         },
       };
     case "SETBROWSECOOKINGDURATIONINNERFILTER":
@@ -119,6 +126,69 @@ const stateReducer = (states, action) => {
           cuisineInnerFilterChoice: "",
           dietInnerFilterChoice: "",
           cookingDurationInnerFilterChoice: action.payload,
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: states.browse.cookingDurationPage,
+        },
+      };
+    case "SETBROWSEDIETPAGE":
+      return {
+        ...states,
+        browse: {
+          mounted: states.browse.mounted,
+          data: states.browse.data,
+          filters: {
+            cuisine: ["italian", "chinese", "french", "mexican", "vietnamese"],
+            diet: ["gluten", "ketogenic", "vegetarian", "vegan", "paleo"],
+            cookingDuration: ["10", "20", "30", "40", "50", "60"],
+          },
+          cuisineInnerFilterChoice: states.browse.cuisineInnerFilterChoice,
+          dietInnerFilterChoice: states.browse.dietInnerFilterChoice,
+          cookingDurationInnerFilterChoice:
+            states.browse.cookingDurationInnerFilterChoice,
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: action.payload,
+          cookingDurationPage: states.browse.cookingDurationPage,
+        },
+      };
+    case "SETBROWSECUISINEPAGE":
+      return {
+        ...states,
+        browse: {
+          mounted: states.browse.mounted,
+          data: states.browse.data,
+          filters: {
+            cuisine: ["italian", "chinese", "french", "mexican", "vietnamese"],
+            diet: ["gluten", "ketogenic", "vegetarian", "vegan", "paleo"],
+            cookingDuration: ["10", "20", "30", "40", "50", "60"],
+          },
+          cuisineInnerFilterChoice: states.browse.cuisineInnerFilterChoice,
+          dietInnerFilterChoice: states.browse.dietInnerFilterChoice,
+          cookingDurationInnerFilterChoice:
+            states.browse.cookingDurationInnerFilterChoice,
+          cuisinePage: action.payload,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: states.browse.cookingDurationPage,
+        },
+      };
+    case "SETBROWSECOOKINGDURATIONPAGE":
+      return {
+        ...states,
+        browse: {
+          mounted: states.browse.mounted,
+          data: states.browse.data,
+          filters: {
+            cuisine: ["italian", "chinese", "french", "mexican", "vietnamese"],
+            diet: ["gluten", "ketogenic", "vegetarian", "vegan", "paleo"],
+            cookingDuration: ["10", "20", "30", "40", "50", "60"],
+          },
+          cuisineInnerFilterChoice: states.browse.cuisineInnerFilterChoice,
+          dietInnerFilterChoice: states.browse.dietInnerFilterChoice,
+          cookingDurationInnerFilterChoice:
+            states.browse.cookingDurationInnerFilterChoice,
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: action.payload,
         },
       };
     case "UPDATEBROSWEDATA":
@@ -136,6 +206,9 @@ const stateReducer = (states, action) => {
           dietInnerFilterChoice: states.browse.dietInnerFilterChoice,
           cookingDurationInnerFilterChoice:
             states.browse.cookingDurationInnerFilterChoice,
+          cuisinePage: states.browse.cuisinePage,
+          dietPage: states.browse.dietPage,
+          cookingDurationPage: states.browse.cookingDurationPage,
         },
       };
     default:
@@ -164,8 +237,11 @@ function App() {
         cookingDuration: ["10", "20", "30", "40", "50"],
       },
       cuisineInnerFilterChoice: "",
+      cuisinePage: "1",
       dietInnerFilterChoice: "",
+      dietPage: "1",
       cookingDurationInnerFilterChoice: "",
+      cookingDurationPage: "1",
     },
     uniqueRecipe: {
       mounted: false,

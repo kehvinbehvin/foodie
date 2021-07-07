@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { dataContext } from "../App";
 import fetcher from "../API/fetcher";
 import { useRouteMatch, Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const RecipeInstructions = () => {
   const data = useContext(dataContext);
@@ -42,7 +43,7 @@ const RecipeInstructions = () => {
     <>
       <div>instructions</div>
       <Link to={`${prevURL}`}>
-        <button>back to summary</button>
+        <Button variant="primary">back to summary</Button>
       </Link>
       {instructionsJSX}
     </>

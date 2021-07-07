@@ -4,6 +4,7 @@ import { dataContext } from "../App";
 import fetcher from "../API/fetcher";
 import Card from "../Components/Card";
 import PageBar from "../Components/pageBar";
+import Button from "react-bootstrap/Button";
 
 const RecipeSearchResults = () => {
   console.log("rendering search results");
@@ -39,8 +40,9 @@ const RecipeSearchResults = () => {
       <PageBar />
       <br />
       <Link to="/">
-        <button>Home</button>
+        <Button variant="primary">Home</Button>
       </Link>
+
       {pageDisplayDataJSX}
     </div>
   );

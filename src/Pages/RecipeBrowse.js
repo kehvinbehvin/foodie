@@ -7,6 +7,7 @@ import CookingDuration from "../Components/CookingDuration";
 import RecipeUnique from "../Pages/RecipeUnique";
 import RecipeInstructions from "../Components/RecipeInstructions";
 import RecipeRequirements from "../Components/RecipeRequirements";
+import Button from "react-bootstrap/Button";
 
 const RecipeBrowse = () => {
   let { path } = useRouteMatch();
@@ -16,9 +17,9 @@ const RecipeBrowse = () => {
       <h1>Browse Recipes</h1>
       <br />
       <Link to="/">
-        <button>Home</button>
+        <Button variant="primary">Home</Button>
       </Link>
-
+      <br />
       <BrowseFilter />
       <Switch>
         <Route exact path={`${path}`}>

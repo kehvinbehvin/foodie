@@ -1,11 +1,12 @@
 const fetcher = async (fetchType, options = {}) => {
-  const API_KEY = process.env.REACT_APP_APIKEY3;
+  const API_KEY = process.env.REACT_APP_APIKEY5;
   const API_URL = `?apiKey=${API_KEY}`;
   const recipeId = options.recipeId;
   const reciepeStandardURL = `https://api.spoonacular.com/recipes/${recipeId}`;
   let URLSEARCHED = "";
   if (fetchType === "COMPLEX") {
     const offset = `&offset=` + options.offset;
+
     const userQuery =
       options.userQuery === undefined
         ? ""
@@ -13,15 +14,15 @@ const fetcher = async (fetchType, options = {}) => {
     const cuisine =
       options.cuisine === undefined || options.cuisine === ""
         ? ""
-        : "&cuisine=" + options.cuisine;
+        : "&cuisine=" + options.cuisine + offset;
     const diet =
       options.diet === undefined || options.diet === ""
         ? ""
-        : "&diet=" + options.diet;
+        : "&diet=" + options.diet + offset;
     const readyTime =
       options.cookingDuration === undefined || options.cookingDuration === ""
         ? ""
-        : "&maxReadyTime=" + options.cookingDuration;
+        : "&maxReadyTime=" + options.cookingDuration + offset;
     const complexSearch =
       `https://api.spoonacular.com/recipes/complexSearch` +
       API_URL +
