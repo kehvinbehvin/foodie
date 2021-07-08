@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-licensing": "^1.1.4",
+    "@progress/kendo-react-charts": "^4.7.0",
+    "@progress/kendo-react-intl": "^4.7.0",
+    "@progress/kendo-theme-default": "^4.39.0",
+    "@syncfusion/ej2-react-charts": "^19.2.46",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

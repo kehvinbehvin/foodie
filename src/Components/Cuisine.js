@@ -5,6 +5,7 @@ import { useRouteMatch } from "react-router-dom";
 import fetcher from "../API/fetcher";
 import PageBarBrowsing from "../Components/PageBarBrowsing";
 import CardGroup from "react-bootstrap/CardGroup";
+import Button from "react-bootstrap/Button";
 
 const Cuisine = () => {
   const { path } = useRouteMatch();
@@ -21,9 +22,14 @@ const Cuisine = () => {
   };
   const filtersJSX = filters.map((element) => {
     return (
-      <button value={element} onClick={retrieveValue} key={element}>
+      <Button
+        variant="secondary"
+        value={element}
+        onClick={retrieveValue}
+        key={element}
+      >
         {element}
-      </button>
+      </Button>
     );
   });
   const dataDisplay = data.pageStates[0].browse.data;

@@ -11,15 +11,17 @@ const RecipeMain = () => {
     dispatch({ type: "UPDATEUSERSEARCHINPUT", payload: userRef.current.value });
   };
   return (
-    <div>
-      <h1>RecipeMain</h1>
+    <div className="recipe-main">
+      <h1 className="recipe-main-header">Foodie</h1>
       <br />
-      <input
-        placeholder="Recipe Keyword"
-        ref={userRef}
-        onChange={updateUserInputConstantly}
-      ></input>
-      <div>
+      <div className="recipe-main-input">
+        <input
+          placeholder="Recipe Keyword"
+          ref={userRef}
+          onChange={updateUserInputConstantly}
+        ></input>
+      </div>
+      <div className="recipe-main-buttons">
         <Link to="/browse">
           <Button variant="primary">Browse</Button>
         </Link>{" "}

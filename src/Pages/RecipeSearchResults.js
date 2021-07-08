@@ -5,6 +5,7 @@ import fetcher from "../API/fetcher";
 import Card from "../Components/Card";
 import PageBar from "../Components/pageBar";
 import Button from "react-bootstrap/Button";
+import CardGroup from "react-bootstrap/CardGroup";
 
 const RecipeSearchResults = () => {
   console.log("rendering search results");
@@ -35,15 +36,21 @@ const RecipeSearchResults = () => {
     uploadData();
   }, [userInput, pageNumber, dispatch]);
   return (
-    <div>
-      <h1>Search results</h1>
-      <PageBar />
+    <div className="recipe-searchResults-main">
+      <h1 className="recipe-searchResults-header">Search results</h1>
+      <div className="recipe-searchResults-pagebar">
+        <PageBar />
+      </div>
       <br />
       <Link to="/">
         <Button variant="primary">Home</Button>
       </Link>
-
-      {pageDisplayDataJSX}
+      <CardGroup
+        className="recipe-searchResults-pagebar"
+        style={{ justifyContent: "center" }}
+      >
+        {pageDisplayDataJSX}
+      </CardGroup>
     </div>
   );
 };

@@ -1,38 +1,224 @@
 .App {
   text-align: center;
+
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.recipe-main {
+  height: 600px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 30% 20% 10% 10% 30%;
+}
+.recipe-main-header {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.recipe-main-input {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 20% 60% 20%;
+}
+.recipe-main-input input {
+  grid-column: 2;
+  grid-row: 2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.recipe-main-buttons {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.recipe-browse {
+  height: 1000px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 10% 90%;
+}
+
+.browse-sidebar {
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-template-rows: 10% 90%;
+  background-color: blanchedalmond;
+  padding: 10px;
+}
+.recipe-browse-header {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+.recipe-browse-home {
+  grid-row: 1;
+}
+.recipe-browse-filters {
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.browse-home-button {
+  font-size: 30px;
+}
+
+.recipe-browse-results {
+  height: 2000px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.recipe-unique {
+  height: 60%;
+  width: 100%;
+}
+
+.recipe-unique-instructions {
+  height: 60%;
+  width: 100%;
+}
+
+.recipe-unique-requirements {
+  height: 60%;
+  width: 100%;
+}
+
+.recipe-unique {
+  margin: 10px;
+  display: grid;
+  grid-template-rows: 30% 50% 300px;
+}
+.recipe-unique-buttons {
+  grid-row: 3;
+}
+
+.recipe-unique-information {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 300px;
+}
+
+.recipe-unique-summary-left {
+  grid-column: 1;
+}
+
+#recipe-unique-image-id {
+  height: 300px;
+}
+.recipe-unique-summary-right {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+#recipe-unique-para-id {
+  text-align: left;
+}
+.recipe-unique-Widgetcontainer {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.recipe-unique-tasteWidget {
+  grid-column: 1;
+}
+.recipe-unique-priceWidget {
+  grid-column: 2;
+}
+
+.filter-Link {
+  font-size: 25px;
+}
+.ingredient-card {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.ingredient-cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.requirements-header {
+  background-color: blanchedalmond;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recipe-unique-instructions-container {
+  margin: 50px;
+}
+.step-card-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-top: 50px;
+  border: 2px black solid;
+}
+.step-card-container-left {
+  grid-column: 1;
+  padding: 10px;
+  background-color: orange;
+}
+
+.step-card-container-right {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: white;
+}
+
+.step-card-equipment-side {
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.step-card-equipment-header {
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+}
+.step-card-equipment-container {
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.step-card-ingredient-side {
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.step-card-ingredients-header {
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+}
+.step-card-ingredients-container {
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.mini-card {
+  display: flex;
+  margin-left: 5px;
+  margin-right: 5px;
+  flex-direction: column;
+}
+
+.mini-image-container {
+  display: flex;
+  justify-content: center;
 }

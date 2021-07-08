@@ -1,5 +1,5 @@
 const fetcher = async (fetchType, options = {}) => {
-  const API_KEY = process.env.REACT_APP_APIKEY5;
+  const API_KEY = process.env.REACT_APP_APIKEY;
   const API_URL = `?apiKey=${API_KEY}`;
   const recipeId = options.recipeId;
   const reciepeStandardURL = `https://api.spoonacular.com/recipes/${recipeId}`;
@@ -29,7 +29,8 @@ const fetcher = async (fetchType, options = {}) => {
       userQuery +
       diet +
       readyTime +
-      cuisine;
+      cuisine +
+      "&addRecipeInformation=true";
     URLSEARCHED = complexSearch;
   } else if (fetchType === "INFORMATION") {
     const getInformationByRecipe =
@@ -67,10 +68,18 @@ const fetcher = async (fetchType, options = {}) => {
       reciepeStandardURL + "/IngredientWidget.json" + API_URL;
     URLSEARCHED = getIngredients;
   }
+  console.log(URLSEARCHED);
 
-  const response = await fetch(URLSEARCHED);
-  const data = await response.json();
-  return data;
+  if (fetchType === "TASTEWIDGET") {
+    const response = await fetch(URLSEARCHED);
+    const data = await response.text();
+
+    return data;
+  } else {
+    const response = await fetch(URLSEARCHED);
+    const data = await response.json();
+    return data;
+  }
 };
 
 export default fetcher;

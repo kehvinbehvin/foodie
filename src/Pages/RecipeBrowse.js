@@ -13,57 +13,63 @@ const RecipeBrowse = () => {
   let { path } = useRouteMatch();
 
   return (
-    <div>
-      <h1>Browse Recipes</h1>
+    <div className="recipe-browse">
+      <h1 className="recipe-browse-header">Browse Recipes</h1>
       <br />
-      <Link to="/">
-        <Button variant="primary">Home</Button>
-      </Link>
-      <br />
-      <BrowseFilter />
-      <Switch>
-        <Route exact path={`${path}`}>
-          <div>Select a filter</div>
-        </Route>
-        <Route path={`${path}/cuisine/:id/requirements`}>
-          <RecipeRequirements />
-        </Route>
-        <Route path={`${path}/cuisine/:id/instructions`}>
-          <RecipeInstructions />
-        </Route>
-        <Route path={`${path}/cuisine/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route path={`${path}/cuisine`}>
-          <Cuisine />
-        </Route>
+      <div className="browse-sidebar">
+        <div className="recipe-browse-home">
+          <Link to="/" className="browse-home-button">
+            Home
+          </Link>
+        </div>
+        <br />
+        <div className="recipe-browse-filters">
+          <BrowseFilter />
+        </div>
+      </div>
 
-        <Route path={`${path}/diet/:id/requirements`}>
-          <RecipeRequirements />
-        </Route>
-        <Route path={`${path}/diet/:id/instructions`}>
-          <RecipeInstructions />
-        </Route>
-        <Route path={`${path}/diet/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route path={`${path}/diet`}>
-          <Diet />
-        </Route>
+      <div className="recipe-browse-results">
+        <Switch>
+          <Route path={`${path}/cuisine/:id/requirements`}>
+            <RecipeRequirements />
+          </Route>
+          <Route path={`${path}/cuisine/:id/instructions`}>
+            <RecipeInstructions />
+          </Route>
+          <Route path={`${path}/cuisine/:id`}>
+            <RecipeUnique />
+          </Route>
+          <Route path={`${path}/cuisine`}>
+            <Cuisine />
+          </Route>
 
-        <Route path={`${path}/cookingDuration/:id/requirements`}>
-          <RecipeRequirements />
-        </Route>
-        <Route path={`${path}/cookingDuration/:id/instructions`}>
-          <RecipeInstructions />
-        </Route>
-        <Route path={`${path}/cookingDuration/:id`}>
-          <RecipeUnique />
-        </Route>
-        <Route path={`${path}/cookingDuration`}>
-          <CookingDuration />
-        </Route>
-      </Switch>
+          <Route path={`${path}/diet/:id/requirements`}>
+            <RecipeRequirements />
+          </Route>
+          <Route path={`${path}/diet/:id/instructions`}>
+            <RecipeInstructions />
+          </Route>
+          <Route path={`${path}/diet/:id`}>
+            <RecipeUnique />
+          </Route>
+          <Route path={`${path}/diet`}>
+            <Diet />
+          </Route>
+
+          <Route path={`${path}/cookingDuration/:id/requirements`}>
+            <RecipeRequirements />
+          </Route>
+          <Route path={`${path}/cookingDuration/:id/instructions`}>
+            <RecipeInstructions />
+          </Route>
+          <Route path={`${path}/cookingDuration/:id`}>
+            <RecipeUnique />
+          </Route>
+          <Route path={`${path}/cookingDuration`}>
+            <CookingDuration />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 };

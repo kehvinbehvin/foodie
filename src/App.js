@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import "@progress/kendo-theme-default/dist/all.css";
 import "./App.css";
 import RecipeMain from "./Pages/RecipeMain";
 import RecipeBrowse from "./Pages/RecipeBrowse";

@@ -4,6 +4,8 @@ import { useRouteMatch } from "react-router-dom";
 import Card from "../Components/Card";
 import fetcher from "../API/fetcher";
 import PageBarBrowsing from "../Components/PageBarBrowsing";
+import CardGroup from "react-bootstrap/CardGroup";
+import Button from "react-bootstrap/Button";
 
 const Diet = () => {
   const { path } = useRouteMatch();
@@ -17,9 +19,9 @@ const Diet = () => {
   };
   const filtersJSX = filters.map((element) => {
     return (
-      <button value={element} onClick={retrieveValue}>
+      <Button variant="secondary" value={element} onClick={retrieveValue}>
         {element}
-      </button>
+      </Button>
     );
   });
   const dataDisplay = data.pageStates[0].browse.data;
@@ -45,7 +47,9 @@ const Diet = () => {
     <>
       <div>{filtersJSX}</div>
       <PageBarBrowsing filter={"diet"} />
-      {dataDisplayJSX}
+      <CardGroup style={{ justifyContent: "center" }}>
+        {dataDisplayJSX}
+      </CardGroup>
     </>
   );
 };

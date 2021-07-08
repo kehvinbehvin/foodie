@@ -4,6 +4,8 @@ import Card from "../Components/Card";
 import { useRouteMatch } from "react-router-dom";
 import fetcher from "../API/fetcher";
 import PageBarBrowsing from "../Components/PageBarBrowsing";
+import CardGroup from "react-bootstrap/CardGroup";
+import Button from "react-bootstrap/Button";
 
 const CookingDuration = () => {
   const { path } = useRouteMatch();
@@ -21,9 +23,9 @@ const CookingDuration = () => {
   };
   const filtersJSX = filters.map((element) => {
     return (
-      <button value={element} onClick={retrieveValue}>
-        {element}
-      </button>
+      <Button variant="secondary" value={element} onClick={retrieveValue}>
+        {element} mins
+      </Button>
     );
   });
   const dataDisplay = data.pageStates[0].browse.data;
@@ -51,7 +53,9 @@ const CookingDuration = () => {
     <>
       <div>{filtersJSX}</div>
       <PageBarBrowsing filter={"cookingDuration"} />
-      {dataDisplayJSX}
+      <CardGroup style={{ justifyContent: "center" }}>
+        {dataDisplayJSX}
+      </CardGroup>
     </>
   );
 };
