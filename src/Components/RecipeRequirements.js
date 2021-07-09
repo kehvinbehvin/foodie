@@ -21,6 +21,7 @@ const RecipeRequirements = () => {
             src={
               "https://spoonacular.com/cdn/ingredients_100x100/" + element.image
             }
+            alt={element.name}
           ></img>
         </div>
         <div className="Icard-title">{element.name}</div>

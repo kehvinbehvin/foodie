@@ -7,7 +7,6 @@ import CookingDuration from "../Components/CookingDuration";
 import RecipeUnique from "../Pages/RecipeUnique";
 import RecipeInstructions from "../Components/RecipeInstructions";
 import RecipeRequirements from "../Components/RecipeRequirements";
-import Button from "react-bootstrap/Button";
 
 const RecipeBrowse = () => {
   let { path } = useRouteMatch();

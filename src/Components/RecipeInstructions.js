@@ -48,6 +48,7 @@ const RecipeInstructions = () => {
                                 "https://spoonacular.com/cdn/equipment_100x100/" +
                                 equipment.image
                               }
+                              alt={equipment.name}
                             ></img>
                           </div>
                         </div>
@@ -77,6 +78,7 @@ const RecipeInstructions = () => {
                                 "https://spoonacular.com/cdn/ingredients_100x100/" +
                                 ingredients.image
                               }
+                              alt={ingredients.name}
                             ></img>
                           </div>
                         </div>

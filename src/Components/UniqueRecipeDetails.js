@@ -8,7 +8,6 @@ import {
   SeriesCollectionDirective,
   SeriesDirective,
   Inject,
-  PolarSeries,
   LineSeries,
   RadarSeries,
   Category,
@@ -41,7 +40,11 @@ const UniqueRecipeDetails = () => {
           return (
             <div className="recipe-unique-information">
               <div className="recipe-unique-summary-left">
-                <img src={imagesrc} id="recipe-unique-image-id"></img>
+                <img
+                  src={imagesrc}
+                  alt={title}
+                  id="recipe-unique-image-id"
+                ></img>
               </div>
 
               <div className="recipe-unique-summary-right">
