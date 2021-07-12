@@ -1,71 +1,60 @@
-# Getting Started with Create React App
+### Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Foodie is a tool and a guide for inexperienced cookers. Many people are stuck eating the same meals everyday because of their lack of skills and knowledge in cooking.
+Foodie allows people to search for recipes according to their requirements and gives them a step by step guide on how to prepare them
 
-## Available Scripts
+### App Design
 
-In the project directory, you can run:
+1. Main Search --> Search or Browsing Page
+2. Search Results --> Recipe Page
+3. Broswing Page --> Filter Pages
+   -Filter Pages
+   --> Cuisine Page --> Recipe Page
+   --> Cooking Duration Page --> Recipe Page
+   --> Diet Page --> Recipe Page
+4. Recipe Page --> Requirements and instructions Pages
 
-### `npm start`
+### Main Concerns
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Page Design --> What is the experience of my user
+2. Code Structure --> How would my implementaion of different componenets affect user experience on my page
+3. API fetching --> How would my API fetches affect my Code structure in terms of my states (Many different variations of the same URL)
+4. Routing --> How would my Routes affect the components that im using and also my styling (Recipe)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Approach
 
-### `npm test`
+1. Global state for the entire app using -useContext and -useReducer
+2. Each page has a state that includes its data, page number, filters etc
+   - Initially chose my global state to follow the user's data
+   - API fetch upon mounting of each page
+3. Using Routes and Nested Routes to achieve the different views of the browse and search page
+4. Central function to build fetch
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Page Design
 
-### `npm run build`
+1. Get page data from useContext
+2. Render out data
+3. useEffect --> dispatch made to fetch data based on filters and dispatch again to set as global state
+4. useEffect dependency --> set to page filters
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Main Challenges
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Routing and Nested Routes
+2. Moving data from page to page -useContext and Page States
+   - Issues when moving data from parents to children
+     - Could have solved simple issues by fetching a larger file and passing props to child
+     - instead had to fetch data in the child again because of the structure of the useReducer
+       -Possible solution is to implement states for components in the global state? But end up with a gigantic global state -> eg Redux
+       -Another Possible solution is to restrict global states to certain types of variables and use a mix of local and global states
+       -State carries alot of logic (data, apiEndpoints, components)
+   - Dispatching states properly
+3. Timing fetches -useEffect and setting appropriate dependencies --> main issue was the limit of API calls
+4. Interwining logic between API endpoints and page design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Improvements
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# foodie
+1. Refactor browsing components
+2. Segment and Abstract out more components
+3. Overall code structure
+4. Timing of fetches (Batching fetches maybe)
+5. Setting page history to prevent re-fetching when moving back on routes
