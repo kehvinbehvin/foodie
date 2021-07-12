@@ -34,7 +34,7 @@ Foodie allows people to search for recipes according to their requirements and g
 
 1. Get page data from useContext
 2. Render out data
-3. useEffect --> dispatch made to fetch data based on filters and dispatch again to set as global state
+3. useEffect --> dispatch made to fetch data based on filters and dispatch again to set received data as global state
 4. useEffect dependency --> set to page filters
 
 ### Main Challenges
@@ -56,5 +56,10 @@ Foodie allows people to search for recipes according to their requirements and g
 1. Refactor browsing components
 2. Segment and Abstract out more components
 3. Overall code structure
-4. Timing of fetches (Batching fetches maybe)
+4. Timing of fetches (Batch fetches maybe)
 5. Setting page history to prevent re-fetching when moving back on routes
+
+### React Libraries as solutions
+
+1. Redux --> State Management
+2. React useQuery Hook --> Fetching and Caching
